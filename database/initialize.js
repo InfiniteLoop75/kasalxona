@@ -5,7 +5,7 @@ module.exports = {
         DB
        .authenticate()
        .then(()=>{
-           console.log("Bazaga ulandi");
+           console.log("Ma'lumotlar bazasiga ulandi");
        }).catch((err)=>{
             console.log('Bazaga ulanishda xatolik yuz berdi: ' + err);
        });
