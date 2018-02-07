@@ -7,7 +7,6 @@ const {initializeDB} = require('./database/initialize');
 //const {Patient} = require('./models/patient');
 var server = express();
 
-initializeDB();
 server.use(logger('dev'));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));

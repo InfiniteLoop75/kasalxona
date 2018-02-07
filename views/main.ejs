@@ -9,9 +9,29 @@
      <div class="jumbotron">
         <h1>Hello World</h1>
     </div>
-    <p><%= Patient.name%></p>
-    <p><%= Patient.age%></p>
-    <p><%= Patient.city%></p>
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        Bemorlar
+    </div>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+        </tr>
+         <%for(var i = 0; i<pattients.length; i++){ %>
+            <tr>
+                <td><%=pattients[i].id%></td>
+                <td><%=pattients[i].name%></td>
+                <td><%=pattients[i].age%></td>
+                <td><%=pattients[i].email%></td>
+            </tr>
+         <%}%>
+         
+    </table>
+    </div>
+   
  </div>
     <% include ./partials/footer %>
 </body>

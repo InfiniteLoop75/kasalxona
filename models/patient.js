@@ -1,18 +1,35 @@
-const sequelize = require('sequelize');
-const Patient = sequelize.define('patient',{
+const Sequelize = require('sequelize');
+const {DB} = require('../database/db');
+// const {initializeDB} = require('../database/initialize');
+//initializeDB();
+const Patient = DB.define('Patient',{
     id:{
-        type: sequelize.INTEGER,
+        type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+        allowNull: false
     },
     name:{
-        type: sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: "No Name"
     },
     age: {
-        type: sequelize.INTEGER
+        type: Sequelize.INTEGER
+        
+    },
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        default: 'No email'
+        
     }
+},
+{
+    tableName: 'patients',
+    timestamps: false
 });
-
+Patient.sync({force: false});
 module.exports = {
     Patient
 }
