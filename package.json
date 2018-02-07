@@ -2,16 +2,19 @@
   "name": "kasalxona",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/InfiniteLoop75/kasalxona",
   "main": "index.js",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
+    "morgan": "^1.9.0",
     "mysql2": "^1.5.2",
     "sequelize": "^4.33.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index"
   },
   "author": "",
   "license": "ISC"

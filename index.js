@@ -1,8 +1,14 @@
 const express = require('express');
 const mysql = require('mysql2');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 const {initializeDB} = require('./database/initialize');
 var server = express();
+
 initializeDB();
+server.use(logger('dev'));
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: false }));
 server.set('view engine', 'ejs');
 server.get('/', (req, res)=>{
     var Person = {
