@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kasalxona</title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <% include ./partials/head %>
 </head>
 <body>
+ <% include ./partials/header %>
     <div class="jumbotron">
         <h1>Hello World</h1>
     </div>
     <p><%= Person.name%></p>
     <p><%= Person.age%></p>
     <p><%= Person.city%></p>
+
+
+    <% include ./partials/footer %>
 </body>
 </html>
