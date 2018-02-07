@@ -1,15 +1,8 @@
 const express = require('express');
 const mysql = require('mysql2');
-const {DB} = require('./database/db');
+const {initializeDB} = require('./database/initialize');
 var server = express();
-
-DB
-   .authenticate()
-   .then(()=>{
-       console.log("Connected to database");
-   }).catch((err)=>{
-        console.log('Unable to connect to database' + err);
-   });
+initializeDB();
 server.set('view engine', 'ejs');
 server.get('/', (req, res)=>{
     var Person = {
@@ -22,5 +15,5 @@ server.get('/', (req, res)=>{
     res.render('main', {Person});
 })
 server.listen(3000, ()=>{
-    console.log('Server is up and running on port 3000');
+    console.log("Server PORT 3000da ko'tarildi");
 })
