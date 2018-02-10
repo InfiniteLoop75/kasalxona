@@ -14,7 +14,7 @@ MainRouter.get('/createPatient', (req, res)=>{
 //     res.redirect('/');
 // });
 MainRouter.get('/', (req, res)=>{
-
+    res.render('main');
 });
 module.exports = {
     MainRouter
