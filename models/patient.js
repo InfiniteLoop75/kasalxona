@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+const {Address} = require('./address');
 const {DB} = require('../database/db');
 // const {initializeDB} = require('../database/initialize');
 //initializeDB();
@@ -14,22 +15,39 @@ const Patient = DB.define('Patient',{
         allowNull: false,
         defaultValue: "No Name"
     },
-    age: {
-        type: Sequelize.INTEGER
+    date_of_birth: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        default: Sequelize.NOW
         
     },
-    email: {
+    addressId: {
+        type: Sequelize.INTEGER,
+        references: {
+            model: 'addresses',
+            key: 'id'
+        }
+    },
+    phone:{
+        type: Sequelize.STRING,
+        unique: true,
+    },
+    passportNum:{
+        type: Sequelize.STRING,
+        unique: true
+    },
+    regdate:{
         type: Sequelize.STRING,
         allowNull: false,
-        default: 'No email'
-        
+        defaultValue: Sequelize.NOW
     }
 },
 {
     tableName: 'patients',
     timestamps: false
 });
-Patient.sync({force: false});
+Patient.hasOne(Address, {foreignKey: 'addressId'});
+Patient.sync();
 module.exports = {
     Patient
 }
